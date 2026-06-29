@@ -97,7 +97,7 @@ def load_data(url):
         '61': 'West Kalimantan', '62': 'Central Kalimantan', '63': 'South Kalimantan', '64': 'East Kalimantan',
         '65': 'North Kalimantan', '71': 'North Sulawesi', '72': 'Central Sulawesi', '73': 'South Sulawesi',
         '74': 'Southeast Sulawesi', '75': 'Gorontalo', '76': 'West Sulawesi', '81': 'Maluku', '82': 'North Maluku',
-        '91': 'Papua', '92': 'West Papua', '94': 'Papua Central', '95': 'Papua Pegunungan', '96': 'Papua Jaya'
+        '91': 'West Papua', '92': 'South West Papua', '95': 'South Papua', '94': 'Papua', '95': 'South Papua', '96': 'Central Papua', '97': 'Highland Papua'
     }
     gdp_long['province'] = gdp_long['districtID'].str[:2].map(province_map).fillna('Unknown')
     return gdp_long
