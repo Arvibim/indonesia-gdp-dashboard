@@ -12,9 +12,19 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git remote add hf https://Arvibim:$HF_TOKEN@huggingface.co/spaces/Arvibim/indonesia-gdp-percapita
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          
+          # Hubungkan alamat Space tanpa menempelkan token di URL
+          git remote add hf https://huggingface.co/spaces/Arvibim/indonesia-gdp-percapita
+          
+          # Masukkan token dengan aman lewat konfigurasi internal Git
+          git config --local http.https://huggingface.co/.extraheader "Authorization: Bearer $HF_TOKEN"
+          
+          # Kirim kode secara paksa
           git push -f hf main
